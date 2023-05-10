@@ -1,0 +1,182 @@
+
+const express = require('express');
+const app = express();
+
+const fs = require('fs');
+const port = 80;
+
+const readLine = require("readline");
+const hostname = 'localhost';
+
+var eng2span = {};
+var span2eng = {};
+var eng2ger = {};
+var ger2eng = {};
+var ger2span = {};
+var span2ger = {};
+var eng2eng = {};
+var ger2ger={};
+var span2span = {};
+
+app.use(express.static('vs_studio_files'));
+
+app.get('/:placeholder_1/:placeholder_2/:word',function(req,res) {
+  // This function will go to create the server and display the translated text. 
+  res.statusCode = 200;
+  const placeholder_1 = req.params.placeholder_1;
+  const placeholder_2 = req.params.placeholder_2;
+  const word = req.params.word;
+
+  // This big if/else statement will check for the valid commands and proceed accordingly. 
+  if (placeholder_1 == 'translate'){
+    if(placeholder_2 == "e2s"){
+      const splitSentence = word.split("+");
+      empt = "";
+      for(var i = 0; i < splitSentence.length; i++){
+        empt += eng2span[splitSentence[i]] + " ";      
+      }
+    }
+    else if(placeholder_2 == "s2e"){
+      const splitSentence = word.split("+");
+      empt = "";
+      for(var i = 0; i < splitSentence.length; i++){
+        empt += span2eng[splitSentence[i]] + " ";      
+      }
+    }
+    else if(placeholder_2 == "e2g"){
+      const splitSentence = word.split("+");
+      empt = "";
+      for(var i = 0; i < splitSentence.length; i++){
+        empt += eng2ger[splitSentence[i]] + " ";      
+      }
+    }
+    else if(placeholder_2== "g2e"){
+      const splitSentence = word.split("+");
+      empt = "";
+      for(var i = 0; i < splitSentence.length; i++){
+        empt += ger2eng[splitSentence[i]] + " ";      
+      }
+    }
+    else if(placeholder_2 == "g2s"){
+      const splitSentence = word.split("+");
+      empt = "";
+      for(var i = 0; i < splitSentence.length; i++){
+        empt += ger2span[splitSentence[i]] + " ";      
+      }
+    }
+    else if(placeholder_2 == "s2g"){
+      const splitSentence = word.split("+");
+      empt = "";
+      for(var i = 0; i < splitSentence.length; i++){
+        empt += span2ger[splitSentence[i]] + " ";      
+      }
+    }
+    else if(placeholder_2 == "e2e"){
+      const splitSentence = word.split("+");
+      empt = "";
+      for(var i = 0; i < splitSentence.length; i++){
+        empt += eng2eng[splitSentence[i]] + " ";      
+      }
+    }
+    else if(placeholder_2 == "s2s"){
+      const splitSentence = word.split("+");
+      empt = "";
+      for(var i = 0; i < splitSentence.length; i++){
+        empt += span2span[splitSentence[i]] + " ";      
+      }
+    }
+    else if(placeholder_2 == "g2g"){
+      const splitSentence = word.split("+");
+      empt = "";
+      for(var i = 0; i < splitSentence.length; i++){
+        empt += ger2ger[splitSentence[i]] + " ";      
+      }
+    }
+    res.setHeader('Content-Type', 'text/plain');
+    res.end(empt);
+  }
+  else{
+    res.end("Okay");
+  }
+
+});
+
+async function readLines(fileName){
+  // This function will read all the lines of a text file and store each of the values within a list. 
+  const fileStream = fs.createReadStream(fileName);
+  const r1 = readLine.createInterface({
+    input: fileStream,
+    crlfDelay:Infinity
+  });
+  const finalList = [];
+  const conversionList1 = [];  const conversionList2 = [];
+  for await(const line of r1){
+    if (line[0] != '#'){
+      const[firstWord,secondWord] = line.split('\t');
+      // The first conversion list will be the English one.
+      conversionList1.push(firstWord);
+      // The second conversion list will be one of the two foreign languages. It will also exclude special characters based on these regular expressions.
+      conversionList2.push(secondWord[0] != "(" ? secondWord.split(/[,\(\)\[\!\/\;]/)[0] : secondWord.split(")")[1].split(/[,\(\)\[\!\/\;]/)[0]);
+    }
+  }
+  finalList.push(conversionList1);
+  finalList.push(conversionList2);
+  return finalList;
+}
+
+async function dictionary_conversion(first,second){
+  // This will take the lists created in the readLines function and give them key and value pairs. 
+  const dict = new Object();
+  for (var i = 0; i <first.length; i++){
+    //The trim and lowercase will make sure everything is consistent.
+  dict[first[i].trim().toLowerCase()] = second[i].trim().toLowerCase();
+  }
+  return dict;
+}
+
+async function main(){
+  const germanTranslation = await readLines('German.txt');
+  const spanishTranslation = await readLines('Spanish.txt');
+  // This will be English To English
+  eng2eng = new Object(await dictionary_conversion(germanTranslation[0],germanTranslation[0]));
+
+  // This will be German To German
+  ger2ger = new Object(await dictionary_conversion(germanTranslation[1],germanTranslation[1]));
+
+  // This will be Spanish to Spanish.
+  span2span = new Object(await dictionary_conversion(spanishTranslation[1],spanishTranslation[1]));
+
+  // This will be English to German.
+  eng2ger = new Object(await dictionary_conversion(germanTranslation[0],germanTranslation[1]));
+
+  // This will be German to English.
+  ger2eng = new Object(await dictionary_conversion(germanTranslation[1],germanTranslation[0]));
+  // This will be English to Spanish.
+  eng2span = new Object(await dictionary_conversion(spanishTranslation[0],spanishTranslation[1]));
+
+  // This will be Spanish to English.
+  span2eng = new Object(await dictionary_conversion(spanishTranslation[1],spanishTranslation[0]));
+
+  //This will be Spanish to German.
+  ger2span = new Object();
+  for (var i in eng2span){
+      ger2span[eng2ger[i]]=eng2span[i]
+  }
+
+  //This will be German to Spanish.
+  span2ger = new Object();
+  for (var i in eng2ger){
+      span2ger[eng2span[i]]=eng2ger[i]
+  }
+  
+ 
+}
+
+
+
+app.listen(port, () => {
+  // This function will give the link address to see the actual translated text.
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+
+main()
