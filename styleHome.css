@@ -1,0 +1,266 @@
+body{
+  margin: 0;
+  background: linear-gradient(to top left, rgb(255, 128, 0), rgb(255, 242, 0));
+
+}
+
+#objective{
+  display: block;
+  position: fixed;
+  margin-left: 26%;
+  margin-top: 8%;
+  border: solid 3px black;
+  font-family: inherit;
+  padding: 5px;
+  font-size: 21px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+#picture {
+  max-width: 100%;
+  max-height: 100%;
+  display: none;
+  position:fixed;
+  margin-top: 125px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 5px;
+  border-style: ridge;
+  border-color:linear-gradient(to top left, rgb(234, 124, 15), rgb(239, 228, 25));;
+}
+
+.fadeOut {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    margin-top: 125px;
+
+  }
+  100% {
+    opacity: 0;
+    margin-top: 125px;
+
+  }
+}
+#static{
+  position: fixed;
+  display: block;
+  margin-top: 125px;
+  max-width: 100%;
+  border: 5px;
+  border-style: ridge;
+  border-color:linear-gradient(to top left, rgb(234, 124, 15), rgb(239, 228, 25));;
+  max-height: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+#ani{
+  display: none;
+  top: 125px;
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 5px;
+  border-style: ridge;
+  border-color:linear-gradient(to top left, rgb(234, 124, 15), rgb(239, 228, 25));;
+
+}
+
+#accDMG{
+  position: fixed;
+  font-family: Impact;
+  font-size: 1.5rem;
+  bottom: 50px;
+}
+
+#wpmDMG{
+  position: fixed; 
+  font-family: Impact;
+  font-size: 1.5rem;
+  bottom: 200px;
+}
+
+h1 {
+  font-size: xx-large;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  position: fixed;
+  top: 0;
+  margin-top: 10%;
+  text-align: center;
+}
+
+
+
+/*
+
+
+*/
+
+img{
+height: 34%;
+width: 28%;
+}
+
+#playbutton{
+  position: fixed;
+  display: block;
+  bottom: 15%;
+  left: 50%;
+}
+
+#gameboard{
+  position: fixed;
+  display: block;
+  right: 0;
+  top: 0;
+  width: 55%;
+  height: 70%;
+  background: linear-gradient(to top right, rgb(255, 128, 0), rgb(255, 242, 0));
+}
+
+
+#stats{
+  position: fixed;
+  display: block;
+  right: 5%;
+  margin-top: 3%;
+}
+
+#status{
+  position: fixed;
+  display: block;
+  bottom: 0;
+  left: 0;
+  height: 30%;
+  width: 100%;
+  background: #FDDA0D;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5)
+}
+
+#status:before{
+  content: " ";
+  position: fixed;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#typeText {
+  margin-left: 26%;
+  margin-top: 23%;
+  position: fixed;
+  display: block;
+}
+
+#inputText{
+  margin-left: 25px;
+  margin-top: 28%;
+  position: fixed;
+  display: block;
+  font-size: 21px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+#countdown{
+  margin-top: 26% ;
+  display: block;
+  position: fixed;
+  margin-left: 25px;
+
+}
+
+#leaderboard{
+  background: linear-gradient(to top left, rgb(255, 128, 0), rgb(255, 242, 0));
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 70%;
+  width: 45%;
+}
+
+#accuracy,
+#wpm {
+  font-family: Impact;
+  font-size: 1.5rem;
+}
+#table1 {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  margin-top: 5%;
+  margin-left: 50px;
+  width: 60%;
+  height: 50%;
+  border: 3px solid red;
+}
+th, td {
+  border: 3px dotted black;
+  padding: 8px;
+  text-align: center;
+}
+th {
+  background-color: lightgray;
+  font-weight: bold;
+}
+
+
+/*Button*/
+
+a{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  color: #1670f0;
+  padding: 30px 60px;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+}
+
+a:before{
+  content: " ";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+a span:nth-child(1){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #0c002b, #1779ff);
+
+
+}
+
+a span:nth-child(2){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to top, #0c002b, #1779ff);
+
+}
+
+a span:nth-child(3){
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to left, #0c002b, #1779ff);
+
+}
+
+a span:nth-child(4){
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0c002b, #1779ff);
+
+}

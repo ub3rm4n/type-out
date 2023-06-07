@@ -1,0 +1,155 @@
+]
+
+#leaderboard{
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 25%;
+}
+
+#table1 {
+    margin-top: 15%;
+    margin-left: 60px;
+    width: 70%;
+    height: 40%;
+    border: 3px solid red;
+  }
+  th, td {
+    border: 3px dotted black;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background-color: lightgray;
+    font-weight: bold;
+  }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(65, 61, 69);
+  background: linear-gradient(to top left, rgb(255, 128, 0), rgb(255, 242, 0));
+}
+
+#picture {
+  max-width: 100%;
+  max-height: 100%;
+  display: none;
+}
+
+.fadeOut {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+img{
+  height: 50%;
+width: 50%;
+}
+
+#countdown{
+  margin-top: 410px;
+  margin-left: 30px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background: linear-gradient( gray , rgb(55, 55, 205));
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+  font-size: large;
+}
+
+h1 {
+  margin-left: 35px;
+  font-size: xx-large;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  position: fixed;
+  top: 0;
+  margin-top: 10%;
+  text-align: center;
+}
+
+#typeText{
+  margin-top: 450px;
+  margin-right: 600px;
+  background: linear-gradient( gray , rgb(54, 54, 203));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+#table2{
+  margin-top: 50px;
+  position:fixed;
+  display: block;
+  width: 70%;
+  height: 40%;
+  border: 3px solid red;
+  margin-left: 15px;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.create, .logIn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 50px;
+}
+
+input[type="text"], input[type="password"] {
+  margin: 10px 0;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#helpButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(0, 162, 6);
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#rulesButton {
+  position: fixed;
+  bottom: 20px;
+  right: 80px;
+  background-color: rgb(193, 0, 0);
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 80px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+}

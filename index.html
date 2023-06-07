@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Account Creation and Login</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body id="account">
+        <h1 id="title">Type Out!!</h1>
+        <div class="container">
+            <div class="create">
+                <label for="createAccount">Create Account:</label>
+                <input type="text" id="createAccount" name="createAccount" placeholder="Enter username...">
+                <label for="createPassword">Password:</label>
+                <input type="password" id="createPassword" name="createPassword" placeholder="Enter password...">
+                <input type="submit" id="addUserButton" value="create" onclick="addUser()">
+            </div>
+            <div class="logIn">
+                <label for="loginAccount">Log In:</label>
+                <input type="text" id="loginAccount" name="loginAccount" placeholder="Enter username...">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter password...">
+                <input type="submit" id="LoginButton" value="Login" onclick="getUsers()">
+                <div id="loginMessage"></div>
+            </div>
+        </div>
+        <button id="rulesButton" onclick="showRules()">Rules & Useful Info</button>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

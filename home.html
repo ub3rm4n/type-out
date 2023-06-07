@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Type Out!!</title>
+        <link rel = "stylesheet" type = "text/css" href = "styleHome.css">
+    </head>
+    <body id="game" onload="leaderboard()">
+        <div id="leaderboard">
+            <table id="table1">
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Difficulty</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td id="name1"></td>
+                <td id="score1"></td>
+                <td id="difficulty1"></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td id="name2"></td>
+                <td id="score2"></td>
+                <td id="difficulty2"></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td id=name3></td>
+                <td id=score3></td>
+                <td id=difficulty3></td>
+              </tr>
+            </table>
+            <h1 id="typeText">Type this:</h1>
+            <p id = "objective"> ______</p>
+
+        </div>
+
+
+        <div id="gameboard">
+            <p id = "countdown"> 00:00:00</p>            
+            <div id="inputBox">
+            <input type="text" id="inputText" name="inputText" >
+            </div>
+            <img id ="static" src="img/staticBoxer.png">
+            <img id="picture" src="img/Untitled.png">
+            <img id="ani" src="img/punchAni1.png">
+        </div>
+        <span id=status>
+        <div id="playbutton">
+            <a href="/difficulty.html">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Replay
+            </a></div>
+        <div id="stats">
+            <p id="accuracy">Accuracy: ---%</p>
+            <p id="wpm">WPM: ---</p>
+            <p id= "accDMG">ACC DMG:  </p>
+            <p id= "wpmDMG">WPM DMG:  </p>
+        </div>
+        </span>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
