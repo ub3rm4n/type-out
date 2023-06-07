@@ -1,7 +1,4 @@
-For some reason, the files I was extracting couldn't properly send over the video to gradescope, so I've decided to upload it as a link to another site.
-
-
-Please use this link to see the video for our project.
+Please use this link to view my project. 
 
 
 https://www.canva.com/design/DAFh7lUWwvo/DLcexVZHrBxWuAyeGO8Ztg/watch?utm_content=DAFh7lUWwvo&utm_campaign=share_your_design&utm_medium=link&utm_source=shareyourdesignpanel
